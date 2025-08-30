@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perguntinha Importante</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #c084fc, #f9a8d4);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1, h2 {
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+      margin-bottom: 15px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    #yesBtn {
+      background: #22c55e;
+      color: white;
+    }
+
+    #noBtn {
+      background: #ef4444;
+      color: white;
+      position: absolute;
+    }
+
+    .cat-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://i.imgur.com/6p0Yd28.png') center/contain no-repeat;
+      opacity: 0.4;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="cat-bg"></div>
+  <div class="container">
+    <h1>Você me ama mesmo? 🐱</h1>
+    <h2>Vai ter cookie hoje? 🍪</h2>
+    <div class="buttons">
+      <button id="yesBtn">Com certeza</button>
+      <button id="noBtn">Não</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+
+    // faz o botão "não" fugir
+    noBtn.addEventListener("mouseenter", moveButton);
+    noBtn.addEventListener("touchstart", moveButton);
+
+    function moveButton(e) {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    // redireciona ao clicar no sim
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "https://www.youtube.com/watch?v=6fU5cQZ7lKk"; 
+    });
+  </script>
+</body>
+</html>
